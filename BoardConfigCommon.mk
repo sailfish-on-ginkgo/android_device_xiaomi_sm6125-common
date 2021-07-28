@@ -55,7 +55,7 @@ TARGET_USES_64_BIT_BINDER := true
 BOARD_BOOT_HEADER_VERSION := 2
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0x4a90000 androidboot.hardware=qcom msm_rtb.filter=0x237 lpm_levels.sleep_disabled=1 service_locator.enable=1 swiotlb=1 androidboot.configfs=true androidboot.usbcontroller=4e00000.dwc3
 BOARD_KERNEL_CMDLINE += loop.max_part=7
-BOARD_KERNEL_CMDLINE += audit=0
+BOARD_KERNEL_CMDLINE += selinux=1 audit=0 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
@@ -181,7 +181,7 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
 # RIL
-TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
+#TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
@@ -194,7 +194,7 @@ PRODUCT_VENDOR_MOVE_ENABLED := true
 BOARD_VNDK_VERSION := current
 
 # Verified Boot
-BOARD_AVB_ENABLE := true
+BOARD_AVB_ENABLE := false
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 2
 
